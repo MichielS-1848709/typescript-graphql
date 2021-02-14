@@ -16,7 +16,7 @@ class UsersResolver {
     return this.usersService.getUser(getUserArgs);
   }
 
-  @Query(() => [User], {name: 'users', nullable: 'items'})
+  @Query(() => [User], { name: 'users', nullable: 'items' })
   public getUsers(@Args() getUsersArgs: GetUsersArgs): User[] {
     return this.usersService.getUsers(getUsersArgs);
   }
