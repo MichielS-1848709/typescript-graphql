@@ -21,5 +21,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'prettier/prettier': ['error', {endOfLine: 'auto'}] // Remove CRLF warnings on windows machine by using LF: https://stackoverflow.com/a/53769213/9437734
   },
 };
