@@ -9,7 +9,9 @@ import DeleteUserInput from './dto/input/delete-user.input';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [];
+  private users: User[] = [
+    { userId: uuidv4(), email: 'test@test.com', age: 18, password: 'test' },
+  ];
 
   public createUser(createUserDAta: CreateUserInput): User {
     const user: User = {
@@ -34,6 +36,11 @@ export class UsersService {
 
   public getUser(getUserArgs: GetUserArgs): User {
     return this.users.find((user: User) => user.userId === getUserArgs.userId);
+  }
+
+  // Used internally, so no need for an Args class that validates the arguments
+  public getUserByEmail(email: string): User | undefined {
+    return this.users.find((user) => user.email === email);
   }
 
   public getUsers(getUsersArgs: GetUsersArgs): User[] {
